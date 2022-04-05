@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_ADDRESS: 'https://voting-springboot-api.herokuapp.com'
 };
