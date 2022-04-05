@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://voting-springboot-api.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}
