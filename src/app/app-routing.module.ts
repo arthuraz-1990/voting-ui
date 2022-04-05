@@ -1,15 +1,17 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ElectionFormComponent, ElectionListComponent } from "./components";
+import { ElectionFormComponent, ElectionListComponent, HomeComponent } from "./components";
 
 const routes: Routes = [
-  { path: '/election', children:
+  { path: 'home', component: HomeComponent },
+  { path: 'election', children:
     [
       { path: 'list', component: ElectionListComponent },
       { path: 'edit', component: ElectionFormComponent },
       { path: '*', pathMatch: 'full', redirectTo: 'list'}
     ]
-  }
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]
 
 @NgModule({

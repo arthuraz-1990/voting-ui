@@ -1,3 +1,4 @@
+export * from './alert.model';
 export * from './candidate-result.model';
 export * from './candidate.model';
 export * from './election-candidate-register.model';

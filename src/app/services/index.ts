@@ -1,3 +1,4 @@
+export * from './alert.service';
 export * from './candidate-result.service';
 export * from './candidate.service';
 export * from './election-candidate-register.service';
