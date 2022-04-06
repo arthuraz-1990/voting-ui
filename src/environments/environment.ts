@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_ADDRESS: '/api'
+  // API_ADDRESS: '/api'
+  API_ADDRESS: 'https://voting-springboot-api.herokuapp.com'
 };
 
 /*

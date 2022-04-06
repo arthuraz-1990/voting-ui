@@ -8,6 +8,7 @@ const routes: Routes = [
     [
       { path: 'list', component: ElectionListComponent },
       { path: 'edit', component: ElectionFormComponent },
+      { path: 'edit/:electionId', component: ElectionFormComponent },
       { path: '*', pathMatch: 'full', redirectTo: 'list'}
     ]
   },

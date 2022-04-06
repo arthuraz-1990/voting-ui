@@ -22,4 +22,8 @@ export class ElectionService {
   save(election: Election): Observable<Election> {
     return this.http.post<Election>(this.PATH, election);
   }
+
+  findById(id: string): Observable<Election> {
+    return this.http.get<Election>(`${this.PATH}/${id}`);
+  }
 }

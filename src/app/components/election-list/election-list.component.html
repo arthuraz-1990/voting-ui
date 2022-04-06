@@ -27,6 +27,9 @@
               <td>{{ e.endDate }}</td>
               <td>
                 <!-- Ações -->
+                <a class="btn btn-sm" [routerLink]="['/election/edit', e.id]">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
               </td>
             </tr>
           </ng-container>
