@@ -8,9 +8,8 @@
 </nav>
 
 <ng-container *ngIf="electionList | async as itemList">
-  <div class="card table-responsive-md">
-    <table class="table card-body table-sm table-striped table-hover" aria-label="Listagem de Eleições">
-      <!-- <caption>Listagem de Eleições</caption> -->
+  <div class="table-responsive-md">
+    <table class="table table-sm table-striped table-hover" aria-label="Listagem de Eleições">
       <thead>
         <tr>
           <th scope="col">Nome da Eleição</th>
@@ -21,14 +20,16 @@
       </thead>
       <ng-container *ngIf="itemList.length > 0; else emptyList">
         <tbody>
-          <tr *ngFor="let e in electionList | async">
-            <td>{{ e.name }}</td>
-            <td>{{ e.startDate }}</td>
-            <td>{{ e.endDate }}</td>
-            <td>
-              <!-- Ações -->
-            </td>
-          </tr>
+          <ng-container *ngFor="let e of electionList | async">
+            <tr>
+              <td>{{ e.name }}</td>
+              <td>{{ e.startDate }}</td>
+              <td>{{ e.endDate }}</td>
+              <td>
+                <!-- Ações -->
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
       </ng-container>
     </table>

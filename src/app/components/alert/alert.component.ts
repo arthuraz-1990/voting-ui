@@ -23,13 +23,8 @@ export class AlertComponent implements OnInit {
     return this.alertService.alert;
   }
 
-  get message(): Observable<string> {
-    return this.alert.pipe(map(alert => alert ? alert.message : ''));
-  }
-
-  get alertType(): Observable<string> {
-    return this.alert.pipe(map(alert => alert ?
-      alert.type.toString().toLocaleLowerCase() : ''));
+  getType(alert: Alert): string {
+    return `alert-${alert.type.toString()}`;
   }
 
   close(): void {

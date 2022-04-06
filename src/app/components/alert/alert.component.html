@@ -1,7 +1,6 @@
-<ng-container *ngIf="alert | async" >
-  <p>
-    <ngb-alert type="alertType | async" (closed)="close()" >
-      {{ message | async }}
-    </ngb-alert>
-  </p>
+<ng-container *ngIf="alert | async as alert" >
+  <div class="alert alert-dismissible fade show" [ngClass]="getType(alert)" role="alert">
+    {{ alert.message }}
+    <button type="button" class="btn-close" aria-label="Fechar Alerta" (click)="close()"></button>
+  </div>
 </ng-container>
