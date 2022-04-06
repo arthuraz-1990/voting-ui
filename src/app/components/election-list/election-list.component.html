@@ -1,1 +1,46 @@
-<p>election-list works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-between">
+    <a href="#" class="navbar-brand">Listagem de Eleições</a>
+    <button class="btn btn-md btn-primary" routerLink="/election/edit">
+      Cadastrar Nova Eleição
+    </button>
+  </div>
+</nav>
+
+<ng-container *ngIf="electionList | async as itemList">
+  <div class="card table-responsive-md">
+    <table class="table card-body table-sm table-striped table-hover" aria-label="Listagem de Eleições">
+      <!-- <caption>Listagem de Eleições</caption> -->
+      <thead>
+        <tr>
+          <th scope="col">Nome da Eleição</th>
+          <th scope="col">Data de Início</th>
+          <th scope="col">Data Fim</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <ng-container *ngIf="itemList.length > 0; else emptyList">
+        <tbody>
+          <tr *ngFor="let e in electionList | async">
+            <td>{{ e.name }}</td>
+            <td>{{ e.startDate }}</td>
+            <td>{{ e.endDate }}</td>
+            <td>
+              <!-- Ações -->
+            </td>
+          </tr>
+        </tbody>
+      </ng-container>
+    </table>
+  </div>
+</ng-container>
+
+<ng-template #emptyList>
+  <tbody>
+    <tr>
+      <td colspan="4">
+        Não foram encontrados resultados.
+      </td>
+    </tr>
+  </tbody>
+</ng-template>
