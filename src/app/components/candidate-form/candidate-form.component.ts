@@ -37,7 +37,8 @@ export class CandidateFormComponent implements OnInit {
   private createForm() {
     this.form = this.fb.group({
       id: ['', []],
-      name: ['', [Validators.required, Validators.min(3), Validators.max(100)]]
+      name: ['', [Validators.required, Validators.min(3), Validators.max(100)]],
+      imgUrl: ['', []]
     });
   }
 
@@ -46,7 +47,7 @@ export class CandidateFormComponent implements OnInit {
       // Carrega as informações do usuário no formulário.
       lastValueFrom(this.candidateService.findById(candidateId)).then(
         candidate => this.form?.setValue({
-          id: candidate.id, name: candidate.name
+          id: candidate.id, name: candidate.name, imgUrl: candidate.imgUrl
         })
       ).catch(
         error => {
