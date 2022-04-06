@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-between">
+    <a href="#" class="navbar-brand">Listagem de Candidatos</a>
+    <button class="btn btn-md btn-primary" routerLink="/candidate/edit">
+      Cadastrar Novo Candidato
+    </button>
+  </div>
+</nav>
+
+<ng-container *ngIf="candidateList | async as itemList">
+  <div class="table-responsive-md">
+    <table class="table table-sm table-striped table-hover" aria-label="Listagem de Candidatos">
+      <thead>
+        <tr>
+          <th scope="col">Nome do Candidato</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <ng-container *ngIf="itemList.length > 0; else emptyList">
+        <tbody>
+          <ng-container *ngFor="let e of candidateList | async">
+            <tr>
+              <td>{{ e.name }}</td>
+              <td>
+                <!-- Ações -->
+                <a class="btn btn-sm" [routerLink]="['/candidate/edit', e.id]">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </ng-container>
+    </table>
+  </div>
+</ng-container>
+
+<ng-template #emptyList>
+  <tbody>
+    <tr>
+      <td colspan="4">
+        Não foram encontrados resultados.
+      </td>
+    </tr>
+  </tbody>
+</ng-template>
+
